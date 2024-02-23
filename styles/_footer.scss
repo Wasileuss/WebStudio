@@ -1,0 +1,257 @@
+.footer {
+    background-color: $bgMain;
+    color: $colWhite;
+
+    /* .footer__container */
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(50);
+        @include adaptiveValue("padding-top", 60, 30, 0, $containerWidth, 767.98);
+        @include adaptiveValue("padding-bottom", 60, 30, 0, $containerWidth, 767.98);
+
+        @media (max-width: toRem(991.98)) {
+            flex-wrap: wrap;
+            justify-content: center;
+            @include adaptiveValue("column-gap", 300, 30, 0, 991.98, 575.98);
+        }
+
+        @media (max-width: toRem(575.98)) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    /* .footer__address */
+
+    &__address {
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: toRem(575.98)) {
+            align-items: center;
+        }
+    }
+
+    /* .footer__logo */
+
+    &__logo {
+        font-family: $raleway;
+        font-size: toRem(26);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: toRem(20);
+        transition: all 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                transform: scale(1.1);
+            }
+            
+        }
+
+        span {
+            color: $colBlue;
+        }
+    }
+
+    /* .footer__post */
+
+    &__post {
+        font-size: toRem(14);
+        line-height: math.div(24, 14);
+        font-style: normal;
+        margin-bottom: toRem(9);
+
+        a {
+            color: $colWhite;
+            transition: color 0.3s ease 0s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $colActive;
+                }
+            }
+        }
+    }
+
+    /* .footer__link */
+
+    &__link {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: toRem(14);
+        line-height: math.div(24, 14);
+        transition: color 0.3s ease 0s;
+        
+        @media (any-hover: hover) {
+            &:hover {
+                color: $colActive;
+            }
+        }
+    }
+
+    /* .footer__list */
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(10);
+    }
+
+    /* .footer__item */
+
+    &__item {
+    }
+
+    /* .footer__join */
+
+    &__join {
+    }
+
+    /* .footer__form */
+
+    &__form {
+    }
+}
+
+.join {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(20);
+
+    @media (max-width: toRem(575.98)) {
+        align-items: center;
+    }
+
+    /* .join__title */
+
+    &__title {
+        font-size: toRem(14);
+        line-height: math.div(16, 14);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    /* .join__social */
+
+    &__social {
+    }
+}
+
+.social-footer {
+    display: flex;
+    gap: toRem(10);
+
+    /* .social__link */
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: toRem(44);
+        height: toRem(44);
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: background-color 0.3s ease 0s;
+
+        svg {
+            width: toRem(20);
+            height: toRem(20);
+            flex: 0 0 toRem(20);
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $colActive;
+            }
+        }
+    }
+}
+
+.form-subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(20);
+    flex: 0 1 50%;
+
+    @media (max-width: toRem(991.98)) {
+        align-items: center;
+        flex: 1 1 100%;
+    }
+
+    @media (max-width: toRem(575.98)) {
+        width: 100%;
+    }
+
+    /* .form-subscribe__title */
+
+    &__title {
+        font-size: toRem(14);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    /* .form-subscribe__inputs */
+
+    &__inputs {
+        display: flex;
+        align-items: center;
+        gap: toRem(12);
+
+        @media (max-width: toRem(475.98)) {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    /* .form-subscribe__input */
+
+    &__input {
+        padding: toRem(14);
+        flex: 0 1 toRem(358);
+        border-radius: toRem(4);
+        border: toRem(1) solid rgba(255, 255, 255, 0.3);
+
+        @media (max-width: toRem(475.98)) {
+            flex: 1 1 100%;
+        }
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: toRem(16);
+            line-height: 1.25;
+        }
+    }
+
+    /* .form-subscribe__button */
+
+    &__button {
+        display: flex;
+        align-items: center;
+        gap: toRem(10);
+        background-color: $colBlue;
+        padding: toRem(10) toRem(28);
+        border-radius: toRem(4);
+        transition: background-color 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $colActive;
+            }
+        }
+    }
+
+    /* .form-subscribe__text */
+
+    &__text {
+        font-size: toRem(16);
+        line-height: 1.86;
+        font-weight: 700;
+    }
+
+    /* .form-subscribe__icon */
+
+    &__icon {
+    }
+}

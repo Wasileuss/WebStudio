@@ -1,0 +1,345 @@
+.header {
+    border-bottom: toRem(1) solid $borderMain;
+
+    /* .header__container */
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: toRem(25) 0;
+        @include adaptiveValue("gap", 90, 20, 0, $containerWidth, 767.98);
+
+        @media (max-width: 767.98px) {
+            padding: toRem(15) 0;
+        }
+    }
+
+    /* .header__logo */
+
+    &__logo {
+        flex: 0 0 toRem(145);
+        font-family: $raleway;
+        font-weight: 700;
+        font-size: toRem(26);
+        text-transform: uppercase;
+        transition: all 0.5s ease 0s;
+
+        span {
+            color: $colBlue;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    /* .header__burger */
+
+    &__burger {
+        display: none;
+
+        @media (max-width: 597.98px) {
+            display: block;
+            position: relative;
+            width: 30px;
+            height: 20px;
+            z-index: 3;
+
+            span {
+                position: absolute;
+                background-color: $colMain;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                border-radius: 2px;
+                top: 8px;
+                transition: all 0.3s ease 0s;
+            }
+            &:before,
+            &:after {
+                content: "";
+                background-color: $colMain;
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                border-radius: 2px;
+                left: 0;
+                transition: all 0.3s ease 0s;
+            }
+            &:before {
+                top: 0;
+            }
+            &:after {
+                bottom: 0;
+            }
+            &.active span {
+                transform: scale(0);
+            }
+            &.active:hover:after,
+            &.active:hover:before {
+              background-color: $colActive;
+            }
+            &:hover {
+                cursor: pointer;
+                color: $colActive;
+            }
+            &.active:before {
+                transform: rotate(45deg);
+                top: 8px;
+            }
+            &.active:after {
+                transform: rotate(-45deg);
+                bottom: 8px;
+            }
+        }
+    }
+
+    /* .header__navigation */
+
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+        column-gap: toRem(20);
+
+        @media (max-width: 767.98px) {
+            flex-direction: column-reverse;
+            row-gap: toRem(10);
+            flex-grow: 0;
+        }
+
+        @media (max-width: 597.98px) {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: space-between;
+            gap: toRem(40);
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            transition: all 0.3s ease 0s;
+            background-color: $colWhite;
+            padding: 70px 0 45px;
+            @include adaptiveValue("padding-left", 40, 20, 0, 597.98, 320);
+            @include adaptiveValue("padding-right", 40, 20, 0, 597.98, 320);
+            z-index: 2;
+
+            &.active {
+                justify-content: flex-start;
+                top: 0;
+                height: 100vh;
+            }
+        }
+    }
+
+    /* .header__menu */
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        @include adaptiveValue("gap", 50, 20, 0, $containerWidth, 767.98);
+
+        @media (max-width: 767.98px) {
+            justify-content: space-between;
+        }
+
+        @media (max-width: 597.98px) {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+            flex-grow: 1;
+            gap: toRem(32);
+        }
+    }
+
+    /* .header__contacts */
+
+    &__contacts {
+        display: flex;
+        flex-wrap: wrap;
+        @include adaptiveValue("column-gap", 30, 10, 0, $containerWidth, 767.98);
+        row-gap: toRem(10);
+
+        @media (max-width: 767.98px) {
+            column-gap: toRem(30);
+            border-bottom: toRem(1) solid $borderMain;
+            padding-bottom: toRem(10);
+        }
+
+        @media (max-width: 597.98px) {
+            flex-direction: column-reverse;
+            row-gap: toRem(32);
+            border-bottom: none;
+        }
+    }
+
+    /* .header__social-links */
+
+    &__social-links {
+        display: none;
+
+        @media (max-width: 597.98px) {
+            display: flex;
+            justify-content: start;
+        }
+    }
+}
+
+.menu-header {
+
+    /* .menu-header__item */
+
+    &__item {
+    }
+
+    /* .menu-header__link */
+
+    &__link {
+        font-size: toRem(16);
+        font-weight: 500;
+
+        &--active {
+            color: $colBlue;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: toRem(-31);
+                left: 0;
+                width: 100%;
+                height: toRem(3);
+                background-color: $colBlue;
+
+                @media (max-width: 767.98px) {
+                    bottom: toRem(-17);
+                }
+
+                @media (max-width: 597.98px) {
+                    display: none;
+                }
+            }
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $colActive;
+            }
+        }
+        
+        @media (max-width: 597.98px) {
+            @include adaptiveValue("font-size", 40, 32, 0, 597.98, 320);
+            font-weight: 500;
+            letter-spacing: toRem(1);
+        }
+    }
+}
+
+.contact {
+
+    /* .contact__item */
+
+    &__item {
+    }
+
+    /* .contact__link */
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: toRem(10);
+    }
+
+    /* .contact__text */
+    
+    &__text {
+        font-size: toRem(14);
+        font-weight: 500;
+
+        @media (max-width: 597.98px) {
+            @include adaptiveValue("font-size", 34, 28, 0, 597.98, 320);
+            font-weight: 500;
+            letter-spacing: toRem(1);
+        }
+
+        &--phone {
+            
+            @media (max-width: 597.98px) {
+                color: $colBlue;
+            }
+        }
+        
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $colActive;
+            }
+        }
+    }
+
+    /* .contact__icon */
+
+    &__icon {
+
+        &--mail {
+            width: toRem(16);
+            height: toRem(12);
+            flex: 0 0 toRem(16);
+        }
+
+        &--phone {
+            width: toRem(10);
+            height: toRem(16);
+            flex: 0 0 toRem(10);
+        }
+        
+        @media (max-width: 597.98px) {
+            display: none;
+        }
+    }
+}
+
+.social-link {
+
+    @media (max-width: 597.98px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+
+    /* .social-link__item */
+
+    &__item {
+
+        @media (max-width: 597.98px) {
+            &:not(:last-child) {
+                @include adaptiveValue("padding-right", 40, 10, 0, 597.98, 320);
+                border-right: toRem(2) solid #ececec;
+            }
+        }
+    }
+
+    /* .social-link__link */
+
+    &__link {
+        @include adaptiveValue("font-size", 18, 14, 0, 597.98, 320);
+        color: $colBlue;
+        transition: all 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $colActive;
+            }
+        }
+
+    }
+    
+}
